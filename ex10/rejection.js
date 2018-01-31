@@ -1,3 +1,9 @@
 const alwaysThrows = () => { throw new Error('OH NOES'); };
 
-module.exports = alwaysThrows;
+
+const iterate = (num) => {
+  console.log(num);
+  return num + 1;
+};
+
+module.exports = { alwaysThrows, iterate };
