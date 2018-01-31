@@ -6,4 +6,18 @@ const iterate = (num) => {
   return num + 1;
 };
 
-module.exports = { alwaysThrows, iterate };
+const promise = Promise.resolve(iterate(1));
+
+promise.then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(alwaysThrows)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .catch(error => console.log(error.message));
+
+module.exports = { alwaysThrows, iterate, promise };

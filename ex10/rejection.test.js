@@ -1,4 +1,4 @@
-const { iterate, alwaysThrows } = require('./rejection');
+const { promise, iterate, alwaysThrows } = require('./rejection');
 
 test('testing always throws', () => {
   expect(alwaysThrows).toThrow();
@@ -15,3 +15,14 @@ describe('testing iterate method', () => {
     expect(iterate(4)).toBe(5);
   });
 });
+
+describe('testing promise', () => {
+  test('promise should be of type promise object', () => {
+    expect(typeof promise).toBe('object');
+  });
+
+  test('promise should resolve to be next value', () => {
+    expect(promise.then(iterate)).resolves.toBe(2);
+  });
+});
+
