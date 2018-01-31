@@ -8,4 +8,5 @@ const wrap = (callback) => {
   promise.then(attachTitle).then(callback);
 };
 
+// wrap(console.log);
 module.exports = { attachTitle, wrap };
